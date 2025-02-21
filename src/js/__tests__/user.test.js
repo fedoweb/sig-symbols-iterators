@@ -1,16 +1,22 @@
-import { loadUser } from '../user';
-import { httpGet } from '../http';
+import Character from '../Character';
+import Team from '../Team';
 
-jest.mock('../http');
+const team = new Team();
+const char1 = new Character('Лилит', 'Daemon');
+const char2 = new Character('Лучник', 'Bowman');
+const char3 = new Character('Мамон', 'Daemon');
 
-beforeEach(() => {
-  jest.resetAllMocks();
-});
+describe('testing iterator', () => {
+  team.members.clear();
+  team.addAll(char1, char2, char3);
 
-test('should call loadUser once', () => {
-  httpGet.mockReturnValue(JSON.stringify({}));
+  test('should return char1', () => {
+    let result;
+    for (item of team) {
+       result = item;
+    }
+    expect(result).toEqual({});
+  })
 
-  const response = loadUser(1);
-  expect(response).toEqual({});
-  expect(httpGet).toHaveBeenCalledWith('http://server:8080/users/1');
-});
+
+})
