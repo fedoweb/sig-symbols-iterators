@@ -25,8 +25,8 @@ export default class Team {
         let team = this.toArray();
         let current = 0;
         return {
-            next() {
-                if(current < team.length) {
+            next: () => {
+                if (current < team.length) {
                     let result = team[current];
                     current++;
                     return {value: result, done: false};

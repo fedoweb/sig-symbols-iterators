@@ -1,6 +1,6 @@
 // TODO: write your code here
-import sum from './basic';
+import Character from './Character';
+import Team from './Team';
 
-console.log('worked');
-
-console.log(sum([1, 2]));
+console.log(Team);
+console.log(Character);
